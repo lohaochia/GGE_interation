@@ -50,7 +50,7 @@ WhichWon(GGE1)
 
 
 
-####metan
+####用metan
 install.packages("metan")
 library(metan)
 setwd("C:/Users/t1240/OneDrive/桌面")
@@ -95,6 +95,7 @@ setwd("C:/Users/t1240/Desktop")
 #
 
 MMET=read.table("a.txt",header = T)
+#先建模
 amod1=performs_ammi(MMET,ENV,GEN,REP,trait)
 
 plot_scores(amod1,type = 1)
@@ -111,9 +112,9 @@ w=gge(MMET, ENV, GEN,trait,
       scaling = "none",svp = 3,
       by = NULL)##center=2=G+GE
 plot(w,type = 4,cex=0.1,col.env="red",col.line ="red")
-plot(w,type = 3,cex=0.1,col.env="red",col.line ="red")#多???形
+plot(w,type = 3,cex=0.1,col.env="red",col.line ="red")#多邊形
 
-plot(w,type = 2,cex=0.1,col.env="red",col.line ="red",sel_env="JUL")
+plot(w,type = 2,cex=0.1,col.env="red",col.line ="red",sel_env="JUL")#特定環境
 
 
 #plot(w,type = 5,cex=0.1,col.env="red",col.line ="red",sel_env="SEP_2")
@@ -121,7 +122,7 @@ w2=gge(MMET, ENV, GEN,trait,
       centering = 2,
       scaling = "none",svp = 1,
       by = NULL)##center=2=G+GE
-plot(w2,type = 2,cex=0.1,col.env="red",col.line ="red")#mean
+plot(w2,type = 2,cex=0.1,col.env="red",col.line ="red")#meanAEC
 #########################
 ###########################
 #########################
@@ -154,7 +155,7 @@ ge_plot(MMET, ENV, GEN,
   colour = TRUE
 )
 ge_winners(MMET, ENV, GEN,trait, type = "winners", better = NULL)
-#??????ggebiplot
+#畫ggebiplot
 w=gge(MMET, ENV, GEN,trait,
   centering = 1,
   scaling = "none",svp = 3,
